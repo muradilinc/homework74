@@ -19,8 +19,8 @@ messageRouter.post('/', async (req, res) => {
 messageRouter.get('/', async (req, res) => {
   try {
     const files = await fs.readdir('./messages');
-    for (const file of files) {
-      const fileContent = await fs.readFile('./messages' + '/' + file);
+    for (let i = files.length - 1; i >= 0 && data.length < 5; i--) {
+      const fileContent = await fs.readFile('./messages' + '/' + files[i]);
       data.push(JSON.parse(fileContent.toString()));
     }
   } catch (e) {
