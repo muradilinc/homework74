@@ -9,15 +9,7 @@ app.use(express.json());
 
 app.use('/messages', messageRouter);
 
-const run = async () => {
-  const files = await fs.readdir('./messages');
-  files.forEach(file => {
-    console.log('./message' + '/' + file);
-  });
-};
-
 app.listen(port, () => {
   console.log('we online port: ' + port);
 });
 
-void run().catch(console.error);
